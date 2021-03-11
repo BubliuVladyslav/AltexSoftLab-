@@ -28,8 +28,16 @@ namespace LuckyTicket
             {
                 Console.WriteLine("Please, enter the numbers from the ticket");
                 number = Console.ReadLine();
-                if (_ticket.LuckyTest(minLength, maxLength, number)) Console.WriteLine("Congratulations !");
-                else { Console.WriteLine("Lucky another time"); }
+
+                try
+                {
+                    if (_ticket.LuckyTest(minLength, maxLength, number)) Console.WriteLine("Congratulations !");
+                    else { Console.WriteLine("Lucky another time"); }
+                }
+                catch
+                {
+                    Console.WriteLine("Something went wrong");
+                }
 
                 Console.WriteLine("If you want to exit - press q");
                 choice = Console.ReadLine();
